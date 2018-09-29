@@ -28,7 +28,25 @@ public class DataAccess extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        String sqlCreateTABLE_WORK_MONTH = "CREATE TABLE " + TABLE_WORK_MONTH + "("
+                + COLUNM_ID_WORK + " INT NOT NULL PRIMARY KEY AUTOINCREMENT,"
+                + COLUNM_NAME_WORK + " TEXT NOT NULL ,"
+                + COLUNM_MONEY_GOAL_OF_MONTH + " DOUBLE NOT NULL,"
+                + COLUNM_DATE_OF_GOAL + " DATE NOT NULL)";
 
+        String sqlCreateTABLE_WORK_DATE = "CREATE TABLE " + TABLE_WORK_DATE + "("
+                + COLUNM_ID_WORK_DATE + " INT NOT NULL PRIMARY KEY AUTOINCREMENT,"
+                + COLUNM_ID_WORK_FT + " INT NOT NULL,"
+                + COLUNM_STATUS + " INT NOT NULL ,"
+                + COLUNM_MONEY_GOAL_OF_DATE + " DOUBLE NOT NULL,"
+                + COLUNM_ACTION_DATE + " DATE NOT NULL,"
+                +" CONSTRAINT FK_ID_WORK FOREIGN KEY("
+                + COLUNM_ID_WORK_FT + ") REFERENCES "
+                + TABLE_WORK_MONTH + "("
+                + COLUNM_ID_WORK + ") ON DELETE CASCADE)";
+
+        db.execSQL(sqlCreateTABLE_WORK_MONTH);
+        db.execSQL(sqlCreateTABLE_WORK_DATE);
     }
 
     @Override
