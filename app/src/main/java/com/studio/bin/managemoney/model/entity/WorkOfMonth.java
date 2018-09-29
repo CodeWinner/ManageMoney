@@ -1,9 +1,9 @@
-package com.studio.bin.managemoney.model;
+package com.studio.bin.managemoney.model.entity;
 
 import java.util.Date;
 import java.util.List;
 
-public class WorkOfMounth {
+public class WorkOfMonth {
     private int idWork;
     private int workName;
     private double goalMoneyOfWork;
@@ -13,7 +13,7 @@ public class WorkOfMounth {
     /**
      * Contructor
      * */
-    public WorkOfMounth(){}
+    public WorkOfMonth(){}
 
     public List<ActionDay> getActionDateds() {
         return actionDateds;

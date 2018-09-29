@@ -1,4 +1,4 @@
-package com.studio.bin.managemoney.model;
+package com.studio.bin.managemoney.model.entity;
 
 import java.util.Date;
 
